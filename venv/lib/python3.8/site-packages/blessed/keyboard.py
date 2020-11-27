@@ -374,6 +374,10 @@ DEFAULT_SEQUENCE_MIXIN = (
     (u"\x1b[B", curses.KEY_DOWN),
     (u"\x1b[C", curses.KEY_RIGHT),
     (u"\x1b[D", curses.KEY_LEFT),
+    (u"\x1b[1;2A", curses.KEY_SR),
+    (u"\x1b[1;2B", curses.KEY_SF),
+    (u"\x1b[1;2C", curses.KEY_SRIGHT),
+    (u"\x1b[1;2D", curses.KEY_SLEFT),
     (u"\x1b[F", curses.KEY_END),
     (u"\x1b[H", curses.KEY_HOME),
     # not sure where these are from .. please report
