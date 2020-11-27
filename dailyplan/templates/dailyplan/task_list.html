@@ -1,0 +1,20 @@
+{% extends 'main_template.html' %}
+
+{% block title %} Tasks {% endblock %}
+
+{% block body %}
+    <br>
+    <button><a href="{% url 'plan:create' %}">Create Task</a></button>
+    {% if task_list %}
+        {% for task in task_list %}
+
+            <h3><a href="{% url 'plan:task' task.id %}">{{ task.title }}</a></h3>
+            {% if task.status %} done {% else %} in progress {% endif %}<br>
+            <a href="{% url 'plan:update' task.id %}">update</a> |
+            <a href="{% url 'plan:delete' task.id %}">delete</a><br>
+        {% endfor %}
+    {% else %}
+        <h2>There are no tasks</h2>
+    {% endif %}
+
+{% endblock %}

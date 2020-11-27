@@ -1,0 +1,10 @@
+{% extends 'main_template.html' %}
+
+{% load int_to_time %}
+
+{% block title %} Task {{task.id}} {% endblock %}
+
+{% block body %}
+    <h4>{{ task.title }}</h4>
+    <p>Status: {% if task.status %} done {% else %} in progress {% endif %}</p>
+{% endblock %}

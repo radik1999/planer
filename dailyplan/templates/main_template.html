@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %} {% endblock %}
+    <style>
+        nav a{
+            text-decoration: none;
+            text-align: center;
+            background-color: blue;
+            color: black;
+            padding: 10px 105px;
+            margin: 0px;
+            display: inline-block;
+        }
+        nav a:hover{
+            background-color: #000055;
+        }
+    </style>
+</head>
+<body>
+{% block nav %}
+<nav>
+    <a href="{% url 'plan:home' %}">Home</a>
+    <a href="{% url 'plan:week' %}">Week</a>
+    <a href="{% url 'login' %}">Log in</a>
+    <a href="{% url 'authen:signout' %}">Log out</a>
+    <a href="{% url 'authen:signup' %}">Sign up</a>
+</nav>
+{% endblock %}
+{% block body %}
+{% endblock %}
+</body>
+</html>

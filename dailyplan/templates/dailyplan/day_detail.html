@@ -1,0 +1,45 @@
+{% extends 'main_template.html' %}
+
+{% block title %} Day {% endblock %}
+
+{% block body %}
+{% if day %}
+    <p>{{ day.day_date }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="task" list="tasktitles">
+            <datalist id="tasktitles">
+                <option value="Boston">
+                {% for task in task_titles %}
+                    <option value="{{ task }}">
+                {% endfor %}
+            </datalist>
+        <input type="submit" value="Add Task">
+    </form>
+
+
+    {% if tasks %}
+        {% for task in tasks %}
+            <p>
+                <h3>{{ task.title }}</h3>
+                <label>
+                    {% if task.status %}
+                        <samp style="color: green;">done</samp>
+                    {% else %}
+                        <samp style="color: red;"> in progress</samp>
+                    {% endif %}
+                </label>
+            </p>
+            <a href="{% url 'plan:update' task.id %}"><button>Change</button></a>
+            <a href="{% url 'plan:delete' task.id %}"><button>Delete</button></a>
+            <br>
+        {% endfor %}
+    {% else %}
+        <p>You haven't any plans this day</p>
+    {% endif %}
+{% else %}
+    <p>There are no such day in db</p>
+{% endif %}
+{% endblock %}
+

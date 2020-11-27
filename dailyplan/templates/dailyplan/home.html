@@ -1,0 +1,12 @@
+{% extends "main_template.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+    User: {{ user.username }}<br>
+    ID: {{ user.id }}
+<p><a href="{% url 'login' %}?next={% url 'plan:home' %}">login</a></p>
+<p><a href="{% url 'authen:signout' %}">logout</a></p>
+{% endblock %}

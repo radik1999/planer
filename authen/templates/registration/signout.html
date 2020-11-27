@@ -1,0 +1,10 @@
+{% extends 'main_template.html' %}
+
+{% block title %} Log out {% endblock %}
+
+{% block body %}
+
+    <h2>You have successfully logged out</h2>
+    <p><a href="{% url 'login' %}?next={% url 'plan:home' %}">Login again</a> </p>
+
+{% endblock %}

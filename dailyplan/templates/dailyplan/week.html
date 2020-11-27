@@ -1,0 +1,37 @@
+{% extends 'main_template.html' %}
+
+
+{% block title %} Form {% endblock %}
+
+{% block head %}
+    <style>
+        div{
+            border: 3px solid #550055;
+            display: inline-block;
+            width: 175px;
+            height: 520px;
+            vertical-align: top;
+            text-align: center;
+            margin-top: 50px;
+            color: black;
+        }
+        div:hover{
+            border-color: #aa0000;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    {% for day, tasks, day_name in week %}
+        <a href="{% url 'plan:day' day.id %}">
+            <div>
+                <h2>{{ day_name }}</h2>
+                <h3>{{ day.day_date }}</h3>
+                <hr>
+                {% for task in tasks %}
+                    <p>{{ task.title }}</p>
+                {% endfor %}
+            </div>
+        </a>
+    {% endfor %}
+{% endblock %}
