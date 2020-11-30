@@ -1,12 +1,10 @@
 from django.db import models
-from django.core import validators
 from django.core.exceptions import ValidationError
 from django.conf import settings
-from datetime import date
 
 from django.urls import reverse
 
-from dailyplan.scryps import time_convert, date_convert
+from dailyplan.scryps import time_convert
 
 
 def positive_valid(value):
@@ -40,13 +38,3 @@ class Task(models.Model):
 
     def __str__(self):
         return f'{self.title}: {self.status}'
-
-
-
-
-
-# class DaysTask(models.Model):
-#     day = models.ForeignKey(MyDay, on_delete=models.CASCADE)
-#     task = models.ForeignKey(Task, on_delete=models.CASCADE)
-
-

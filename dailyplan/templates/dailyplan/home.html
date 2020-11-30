@@ -5,8 +5,7 @@ Home
 {% endblock %}
 
 {% block body %}
+    <h1>Welcome!</h1>
     User: {{ user.username }}<br>
     ID: {{ user.id }}
-<p><a href="{% url 'login' %}?next={% url 'plan:home' %}">login</a></p>
-<p><a href="{% url 'authen:signout' %}">logout</a></p>
 {% endblock %}
