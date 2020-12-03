@@ -8,7 +8,7 @@
     {% if task_list %}
         {% for task in task_list %}
 
-            <h3><a href="{% url 'plan:task' task.id %}">{{ task.title }}</a></h3>
+            <h1><a href="{% url 'plan:task' task.id %}">{{ task.title }}</a></h1>
             {% if task.status %} done {% else %} in progress {% endif %}<br>
             <a href="{% url 'plan:update' task.id %}">update</a> |
             <a href="{% url 'plan:delete' task.id %}">delete</a><br>

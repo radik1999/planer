@@ -1,27 +1,11 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'dailyplan/dp_main.css' %}">
     {% block head %} {% endblock %}
-    <style>
-        nav a{
-            text-decoration: none;
-            text-align: center;
-            background-color: blue;
-            color: black;
-            padding: 10px 105px;
-            margin: 0px;
-            display: inline-block;
-        }
-        nav a:hover{
-            background-color: #000055;
-        }
-        body{
-            background-color: #77aa55;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
 {% block nav %}

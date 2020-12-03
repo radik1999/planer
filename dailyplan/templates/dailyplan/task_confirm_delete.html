@@ -1,8 +1,12 @@
 {% extends 'main_template.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'dailyplan/confirm_delete.css' %}">
+{% endblock %}
 
 {% block title %} Delete? {% endblock %}
 {% block body %}
-    <h2>Task delete</h2>
+    <h1 style="margin-top: 5%">Task delete</h1>
     <p>Are you sure that you want to delete task: {{ task }}?</p>
     <form method="post">
         {% csrf_token %}

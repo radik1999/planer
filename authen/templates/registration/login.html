@@ -1,6 +1,13 @@
 {% extends 'main_template.html' %}
+{% load static %}
+
 
 {% block title %} Log in {% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'authen/style_login.css' %}">
+{% endblock %}
+
 
 {% block body %}
 
@@ -16,18 +23,18 @@
 
     <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-        <table>
+        <table class="center" style="margin-top: 172px;">
           <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
+            <th>{{ form.username.label_tag }}</th>
+            <th>{{ form.username }}</th>
           </tr>
           <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
+            <th>{{ form.password.label_tag }}</th>
+            <th>{{ form.password }}</th>
           </tr>
         </table>
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="{% url 'plan:home' %}" />
+    <input class="btn" type="submit" value="login" />
+    <input class="href" type="hidden" name="next" value="{% url 'plan:home' %}" />
   </form>
     <p>If you don't have an account. Please register: <a href="{% url 'authen:signup' %}">Sign up</a></p>
 

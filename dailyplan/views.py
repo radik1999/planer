@@ -63,12 +63,10 @@ class WeekPlanView(LoginRequiredMixin, View):
         tasks = []
 
         for day in whole_week:
-            try:
-                MyDay.objects.get(day_date=str(day), owner=request.user)
-            except Exception:
+            if not MyDay.objects.filter(day_date=str(day), owner=request.user):
                 MyDay(day_date=str(day), owner=request.user).save()
-            finally:
-                days.append(MyDay.objects.get(day_date=str(day), owner=request.user))
+
+            days.append(MyDay.objects.get(day_date=str(day), owner=request.user))
 
         # create dict with days and relative plans
         for day in days:

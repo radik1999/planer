@@ -1,31 +1,36 @@
 {% extends 'main_template.html' %}
+{% load static %}
 
 {% block title %} Day {% endblock %}
 
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'dailyplan/confirm_delete.css' %}">
+{% endblock %}
+
 {% block body %}
 {% if day %}
-    <p>{{ day.day_date }}</p>
+    <p style=" margin-top: 5%;">{{ day.day_date }}</p>
 
     <form method="post">
         {% csrf_token %}
-        <input type="text" name="task" list="tasktitles">
+        <input style="width: 155px" type="text" name="task" list="tasktitles">
             <datalist id="tasktitles">
-                <option value="Boston">
+                <option value="TASK1">
                 {% for task in task_titles %}
                     <option value="{{ task }}">
                 {% endfor %}
             </datalist>
-        <input type="submit" value="Add Task">
+        <input type="submit" style="border-radius: 15px;" value="Add Task">
     </form>
 
 
     {% if tasks %}
         {% for task in tasks %}
             <p>
-                <h3>{{ task.title }}</h3>
+                <h1>{{ task.title }}</h1>
                 <label>
                     {% if task.status %}
-                        <samp style="color: green;">done</samp>
+                        <samp style="color: green;font-size: 13px">done</samp>
                     {% else %}
                         <samp style="color: red;"> in progress</samp>
                     {% endif %}

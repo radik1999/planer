@@ -1,0 +1,30 @@
+p {
+    color: #ABABAB;
+    font-size: 18px;
+    font-family: "Sans-serif", Verdana, monospace;
+}
+
+.btn {
+    margin-left: 11%;
+    width: 7%;
+    height: 32px;
+    text-decoration: none;
+    text-align: center;
+    background-color: #226666;
+    color: #ABABAB;
+    display: inline-block;
+    border-radius: 15px;
+}
+
+form {
+    margin-top: 5%;
+}
+
+.inpt {
+    height: 22px;
+    width: 188px;
+    background-color: #c8c5c5;
+    color: #226666;
+    border-radius: 15px;
+
+}

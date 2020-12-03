@@ -4,11 +4,25 @@
 
 {% block body %}
 
-    <h2>Sign up</h2>
-      <form method="post">
+    <h1 style="color: #ABABAB;font-family : monospace;">Sign up</h1>
+    <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sign up</button>
-      </form>
+        {% for field in form %}
+            <p style=" color: #ABABAB;font-family : monospace; font-size: 18px">
+                {{ field.label_tag }}
+                <input id="{{ field.id_for_label }}" name="{{ field.html_name }}" type="{{ field.widget_type }}"/>
+                {% if field.help_text %}
+                    <br>
+                    <small style="color: #000200;text-decoration: underline">{{ field.help_text }}</small>
+                {% endif %}
+                {% for error in field.errors %}
+                    <p style="color: red">{{ error }}</p>
+                {% endfor %}
+            </p>
+        {% endfor %}
+        <button style=" background-color: #226666; margin-left: 19% ;  width: 7%;
+    height: 32px;color: #ABABAB; display: inline-block;border-radius: 15px;" type="submit">Sign up
+        </button>
+    </form>
 
 {% endblock %}

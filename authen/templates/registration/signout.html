@@ -1,10 +1,16 @@
 {% extends 'main_template.html' %}
+{% load static %}
+
 
 {% block title %} Log out {% endblock %}
 
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'authen/style_login.css' %}">
+{% endblock %}
+
 {% block body %}
 
-    <h2>You have successfully logged out</h2>
+    <h1>You have successfully logged out</h1>
     <p><a href="{% url 'login' %}?next={% url 'plan:home' %}">Login again</a> </p>
 
 {% endblock %}

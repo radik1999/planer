@@ -1,0 +1,14 @@
+div {
+    border: 3px solid #226666;
+    display: inline-block;
+    width: 22%;
+    height: 320px;
+    vertical-align: top;
+    text-align: center;
+    margin-top: 50px;
+    color: #ABABAB;
+}
+
+div:hover {
+    border-color: #004848;
+}

@@ -21,7 +21,7 @@ def time_valid(value):
 
 class MyDay(models.Model):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None)
-    day_date = models.DateField(unique=True)
+    day_date = models.DateField()
 
     def __str__(self):
         return self.day_date.__str__()

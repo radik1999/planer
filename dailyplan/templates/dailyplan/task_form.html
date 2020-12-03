@@ -1,10 +1,22 @@
 {% extends 'main_template.html' %}
+{% load static %}
 
 {% block title %} Form {% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'dailyplan/task_form.css' %}">
+{% endblock %}
+
 {% block body %}
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p}}
-        <input type="submit" value="Save">
+        <p>{{ form.title.label_tag }}
+            <input class="inpt" id="{{ form.title.id_for_label }}" name="{{ form.title.html_name }}"
+                   value="{{ form.title.value }}" type="{{ form.title.widget_type }}"/>
+        </p>
+        <p style="margin-left: 11%"> {{ form.status.label_tag }}
+            {{ form.status }}</p>
+
+        <input class="btn" type="submit" value="Save">
     </form>
 {% endblock %}
