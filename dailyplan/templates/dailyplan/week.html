@@ -1,24 +1,10 @@
 {% extends 'main_template.html' %}
-
+{% load static %}
 
 {% block title %} Form {% endblock %}
 
 {% block head %}
-    <style>
-        div{
-            border: 3px solid #550055;
-            display: inline-block;
-            width: 175px;
-            height: 520px;
-            vertical-align: top;
-            text-align: center;
-            margin-top: 50px;
-            color: black;
-        }
-        div:hover{
-            border-color: #aa0000;
-        }
-    </style>
+<link rel="stylesheet" type="text/css" href="{% static 'dailyplan/style_week.css' %}">
 {% endblock %}
 
 {% block body %}

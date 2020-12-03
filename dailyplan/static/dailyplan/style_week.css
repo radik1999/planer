@@ -1,0 +1,13 @@
+div{
+    border: 3px solid #550055;
+    display: inline-block;
+    width: 175px;
+    height: 520px;
+    vertical-align: top;
+    text-align: center;
+    margin-top: 50px;
+    color: black;
+}
+div:hover{
+    border-color: #aa0000;
+}
