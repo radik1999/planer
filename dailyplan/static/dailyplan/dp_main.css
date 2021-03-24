@@ -1,3 +1,12 @@
+nav{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 20%;
+    height: 500px;
+
+}
+
 nav a {
     text-decoration: none;
     text-align: center;
@@ -6,8 +15,8 @@ nav a {
     padding: 1% 6%;
     margin: 0px;
     display: inline-block;
-    border-radius: 15px;
 }
+
 
 nav a:hover {
     background-color: #004848;
@@ -18,15 +27,17 @@ body {
     text-align: center;
 }
 
-div {
+#content{
+    position: absolute;
+    left: 20%;
+    top: 0px;
     border: 3px solid #226666;
-    display: inline-block;
-    width: 22%;
-    height: 320px;
     vertical-align: top;
+    width: 80%;
+    height: 100%;
     text-align: center;
-    margin-top: 30px;
     color: #ABABAB;
+
 }
 
 div:hover {

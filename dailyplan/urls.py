@@ -13,4 +13,5 @@ urlpatterns = [
     path('task/delete/<int:pk>', TaskDeleteView.as_view(), name='delete'),
     path('week', WeekPlanView.as_view(), name='week'),
     path('day/<int:pk>', MyDayDetailView.as_view(), name='day'),
+    path('upcoming', UpcomingView.as_view(), name='upcoming')
 ]

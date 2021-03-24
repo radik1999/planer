@@ -18,8 +18,15 @@ class OwnerClass:
 
 
 class HomeView(LoginRequiredMixin, View):
-    def get(self, request):
+    @staticmethod
+    def get(request):
         return render(request, 'dailyplan/home.html')
+
+
+class UpcomingView(LoginRequiredMixin, View):
+    @staticmethod
+    def get(request):
+        return render(request, 'dailyplan/upcoming.html')
 
 
 class TaskListView(OwnerClass, LoginRequiredMixin, generic.ListView):
@@ -57,8 +64,8 @@ class WeekPlanView(LoginRequiredMixin, View):
     @staticmethod
     def get_or_create_week(request):
         today = date.today()
-        first_day_of_week = today - timedelta(days=today.weekday())
-        whole_week = [first_day_of_week + timedelta(days=d) for d in range(7)]
+        first_day_of_current_week = today - timedelta(days=today.weekday())
+        whole_week = [first_day_of_current_week + timedelta(days=d) for d in range(7)]
         days = []
         tasks = []
 
