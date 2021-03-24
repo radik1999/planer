@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'tasks.apps.TasksConfig',
     'authen.apps.AuthenConfig',
     'dailyplan.apps.DailyplanConfig',
     'django.contrib.admin',
