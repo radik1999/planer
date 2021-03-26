@@ -1,3 +1,3 @@
 from datetime import date, timedelta
-today = date.today()
-print(today - timedelta(days=today.weekday()))
+today = date.today() - timedelta(days=4)
+print(today, date.weekday(today))
