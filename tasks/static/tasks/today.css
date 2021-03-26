@@ -1,0 +1,21 @@
+#create_task{
+    height: 200px;
+
+}
+
+#create_task_button{
+    position: relative;
+    left: 80%;
+    bottom: 45px;
+
+}
+
+#top h1{
+    position: relative;
+    left: 30px;
+}
+
+.task{
+    text-align: left;
+    margin-left: 100px;
+}
