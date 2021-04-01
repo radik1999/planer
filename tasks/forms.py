@@ -4,5 +4,6 @@ from tasks.models import DailyTask
 
 
 class DailyTaskForm(ModelForm):
-    model = DailyTask
-    fields = ['title', 'priority', 'sub_task', 'goal']
+    class Meta:
+        model = DailyTask
+        fields = ['title', 'priority', 'sub_task', 'goal']

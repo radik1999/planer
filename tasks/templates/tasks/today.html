@@ -3,30 +3,52 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'tasks/today.css' %}">
+
 {% endblock %}
 
 
 {% block body %}
+<script src="static/tasks/help_funcs.js"></script>
+
     <div id="top">
-        <h1>{{ day }} | {{ week_day }}</h1> <button id="create_task_button">Create Task</button>
+        <h1>{{ day }} | {{ week_day }}</h1>
     </div>
-    <form id="create_task">
+    <form id="add_task_form" action="{% url 'tasks:today' %}" method="post">
         {% csrf_token %}
-        <p>
-            <label for="title">Title:</label>
-            <input id="title">
-        </p>
-        <p></p>
+
+        <label for="title"> Title: </label>
+        <input id="title" name="title"/>
+
+        <label for="priority"> Priority: </label>
+        <select id="priority" name="priority">
+            <option value="0">Low</option>
+            <option value="1">Normal</option>
+            <option value="2">High</option>
+        </select>
+
+        <label for="subtask"> Subtask: </label>
+        <input id="subtask" name="subtask" type="button" value="+">
+
+        <label for="goal"> Goal: </label>
+        <select id="goal" name="goal">
+            <option value=""></option>
+            {% for goal in goals %}
+            <option value="{{ goal.title }}">{{goal.title}}</option>
+            {% endfor %}
+        </select>
+
+        <button id="create_task_button" type="submit">Add Task</button>
+
 
     </form>
-
-    <div id="tasks">
-        {% for task in tasks %}
-            <div class="task">
-                <h3>{{ task.title }}</h3>
-                <p>{{ task.status }}</p>
-                <p>{{ task.get_priority }}</p>
-            </div>
+    <button onclick="show_add_task_form()">Add task</button>
+    <hr>
+    {% for task in tasks %}
+    <div class="task">
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.status }}</p>
+        <p>{{ task.get_priority }}</p>
     </div>
+    <hr>
     {% endfor %}
 {% endblock %}
